@@ -55,7 +55,6 @@ const getInitialState = () => {
       showFeaturePreviewModal: false,
       selectedFeaturePreview: '',
       showAiSettingsModal: false,
-      showGenerateSqlModal: false,
       showConnectDialog: false,
       ongoingQueriesPanelOpen: false,
       mobileMenuOpen: false,
@@ -86,7 +85,6 @@ const getInitialState = () => {
     showFeaturePreviewModal: false,
     selectedFeaturePreview: '',
     showAiSettingsModal: false,
-    showGenerateSqlModal: false,
     showConnectDialog: false,
     ongoingQueriesPanelOpen: false,
     mobileMenuOpen: false,
@@ -154,11 +152,6 @@ export const appState = proxy({
     appState.showAiSettingsModal = value
   },
 
-  showGenerateSqlModal: false,
-  setShowGenerateSqlModal: (value: boolean) => {
-    appState.showGenerateSqlModal = value
-  },
-
   showSidebar: true,
   setShowSidebar: (value: boolean) => {
     appState.showSidebar = value
@@ -183,6 +176,10 @@ export const appState = proxy({
       ...appState.editorPanel,
       ...value,
     }
+  },
+
+  toggleEditorPanel: (value?: boolean) => {
+    appState.editorPanel.open = value ?? !appState.editorPanel.open
   },
 
   mobileMenuOpen: false,
